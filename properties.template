@@ -1,0 +1,9 @@
+username='******' #your username ont he server
+password='lidia123' #your passwword on the server
+ip='150.140.5.77' #server ip
+port=5672 # server port
+exchange='lidia-send' #kind of exchange on the server
+gateway='gw1' #gateway name
+
+class PropClass:
+	pass
