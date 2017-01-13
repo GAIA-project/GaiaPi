@@ -55,7 +55,7 @@ def main():
 
     # Send Humidty
     value = "%.4f" % hum
-    sparksrabbit.publish('hum', value)
+    sparksrabbit.publish('humid', value)
 
     # Read from light module
     lux = light_sensor.readVisibleLux()
