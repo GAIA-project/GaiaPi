@@ -1,15 +1,14 @@
-#your username
-username=
-#your passwword
-password=
+#client id
+client_id=
+#client secret
+client_secret=
 #server ip
 ip=
 # server port
 port=
-#client name
-exchange=
 #device name
 gateway=
+
 
 class PropClass:
 	pass
