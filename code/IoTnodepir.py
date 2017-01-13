@@ -24,7 +24,7 @@ while True:
                 # Send Motion
                 value = str(motion)
                 sparksrabbit.publish('pir', value)
-
+                time.sleep(5.0)
                 # if your hold time is less than this, you might not see as many detections
         time.sleep(.2)
 
