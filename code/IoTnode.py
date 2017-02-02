@@ -5,16 +5,20 @@
 
 import time
 import math
+
+# Import grovepi
+import grovepi
+
 # Import library for the light sensor
 import light_library
 
 # Import temperature humidity sensor library
 import grove_i2c_temp_hum_mini
 
-# Import grovepi
-import grovepi
 
 import sparksrabbit
+import influx
+
 
 # Create the object for humidity and light
 temperature_sensor = grove_i2c_temp_hum_mini.th02()
@@ -52,10 +56,11 @@ def main():
     # Send temperature
     value = "%.4f" % tem
     sparksrabbit.publish('temp', value)
-
+    influx.publish('temp',value)
     # Send Humidty
     value = "%.4f" % hum
     sparksrabbit.publish('humid', value)
+    influx.publish('humid',value)
 
     # Read from light module
     lux = light_sensor.readVisibleLux()
@@ -64,6 +69,7 @@ def main():
     # Send lux
     value = "%.4f" % lux
     sparksrabbit.publish('light', value)
+    influx.publish('light',value)
 
     # Sound sensor read
     try:
@@ -78,6 +84,7 @@ def main():
         # send loudness
         value = "%.4f" % db_current
         sparksrabbit.publish('sound', value)
+        influx.publish('sound',value)
 
     except IOError:
         print ("Error")
