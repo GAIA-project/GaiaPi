@@ -14,11 +14,6 @@ parameters = pika.ConnectionParameters(properties.ip, properties.port, '/', cred
 connection = pika.BlockingConnection(parameters)
 channel = connection.channel()
 
-from influxdb import InfluxDBClient
-#client = InfluxDBClient("localhost",8086,"gaia","gaia","sensors")
-
-
-
 def publish(sensorName, value, timestamp=None):
     if timestamp is None:
         ts = int(time.time())
